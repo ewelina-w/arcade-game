@@ -1,18 +1,21 @@
 // Enemies our player must avoid
-var Enemy = function() {
+var Enemy = function(y) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
-    this.pos = [0, 0];
-    this.speed = 0.5;
+    this.x = 0;
+    this.y = y;
+    // this.speed = Math.random()*100;
+    this.speed = (Math.random()*(setInterval(Enemy, 300)))*100;
 };
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
+    this.x += this.speed*dt;
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
@@ -28,18 +31,47 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 
 var Player = function() {
-  this.sprite = 'char-boy.png';
-  this.pos = [100, 50];
-}
+  this.sprite = 'images/char-boy.png';
+  this.x = 200;
+  this.y = 400;
+  this.speed = 200;
+};
+
+Player.prototype.update = function(dt) {
+    // this.x += this.speed*dt;
+    // this.y -=this.speed*dt;
+  };
+
+Player.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+  };
+
 
 // Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-var allEnemies = [Enemy];
+var enemy1 = new Enemy(145);
+var enemy2 = new Enemy(225);
+var enemy3 = new Enemy(63);
+var enemy4 = new Enemy(310);
 
-var player = [Player];
+
+// Place all enemy objects in an array called allEnemies
+// let allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5, enemy6, enemy7, enemy8, enemy9, enemy10];
+let allEnemies = [enemy1, enemy2, enemy3, enemy4];
+var player = new Player();
+
 // Place the player object in a variable called player
 
-
+player.handleInput = function(direction) {
+  if (direction==='up' && this.y>=0) {
+    this.y-=83;
+  } else if (direction==='down' && this.y<=350) {
+    this.y+=83;
+  } else if  (direction==='right' && this.x<=350) {
+    this.x+=101;
+  } else if(direction==='left' && this.x>=0) {
+    this.x-=101;
+  }
+};
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
