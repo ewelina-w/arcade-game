@@ -78,7 +78,7 @@ let allEnemies = [enemy1, enemy2, enemy3, enemy4];
 var player = new Player();
 
 // Place the player object in a variable called player
-
+let moves = 0;
 player.handleInput = function(direction) {
   if (direction==='up' && this.y>=0) {
     this.y-=83;
@@ -89,6 +89,9 @@ player.handleInput = function(direction) {
   } else if(direction==='left' && this.x>=0) {
     this.x-=101;
   }
+  //Count moves
+  moves+=1;
+  console.log('moves');
 };
 
 // This listens for key presses and sends the keys to your
