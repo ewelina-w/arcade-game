@@ -8,14 +8,18 @@ var Enemy = function(y) {
     this.sprite = 'images/enemy-bug.png';
     this.x = 0;
     this.y = y;
-    // this.speed = Math.random()*100;
-    this.speed = (Math.random()*(setInterval(Enemy, 300)))*100;
+    this.speed = Math.random()*300;
+    // this.speed = (Math.random()*(setInterval(Enemy, 300)))*100;
 };
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
+
 Enemy.prototype.update = function(dt) {
     this.x += this.speed*dt;
+    if (this.x>=500) {
+      this.x=-100
+    }
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
@@ -34,12 +38,26 @@ var Player = function() {
   this.sprite = 'images/char-boy.png';
   this.x = 200;
   this.y = 400;
-  this.speed = 200;
 };
 
-Player.prototype.update = function(dt) {
-    // this.x += this.speed*dt;
-    // this.y -=this.speed*dt;
+//Check collision with enemies
+Player.prototype.update = function() {
+  if (player.y === enemy4.y && enemy4.x >= (player.x - 85.5) && enemy4.x <= (player.x+85.5)) {
+    player.x=200;
+    player.y=400;
+  }
+  else if (player.y === enemy3.y && enemy3.x >= (player.x - 85.5) && enemy3.x <= (player.x+85.5)) {
+    player.x=200;
+    player.y=400;
+  }
+  else if (player.y === enemy2.y && enemy2.x >= (player.x - 85.5) && enemy2.x <= (player.x+85.5)) {
+    player.x=200;
+    player.y=400;
+  }
+  else if (player.y === enemy1.y && enemy1.x >= (player.x - 85.5) && enemy1.x <= (player.x+85.5)) {
+    player.x=200;
+    player.y=400;
+  }
   };
 
 Player.prototype.render = function() {
@@ -48,10 +66,10 @@ Player.prototype.render = function() {
 
 
 // Now instantiate your objects.
-var enemy1 = new Enemy(145);
-var enemy2 = new Enemy(225);
-var enemy3 = new Enemy(63);
-var enemy4 = new Enemy(310);
+var enemy1 = new Enemy(68);
+var enemy2 = new Enemy(151);
+var enemy3 = new Enemy(234);
+var enemy4 = new Enemy(317);
 
 
 // Place all enemy objects in an array called allEnemies
