@@ -64,6 +64,25 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   };
 
+var Select = function() {
+    // Variables applied to each of our instances go here,
+    // we've provided one for you to get started
+
+    // The image/sprite for our enemies, this uses
+    // a helper we've provided to easily load images
+    this.sprite = 'images/Selector.png';
+    var arrayX = [-2, 99, 200, 301, 402];
+    var selectX = Math.floor(Math.random() * arrayX.length);
+    this.x = arrayX[selectX];
+    var arrayY = [45, 128, 211, 294, 377];
+    var selectY = Math.floor(Math.random() * arrayY.length);
+    this.y = arrayY[selectY];
+
+  }
+
+Select.prototype.render = function() {
+      ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    };
 
 // Now instantiate your objects.
 var enemy1 = new Enemy(68);
@@ -71,7 +90,7 @@ var enemy2 = new Enemy(151);
 var enemy3 = new Enemy(234);
 var enemy4 = new Enemy(317);
 
-
+var selector = new Select();
 // Place all enemy objects in an array called allEnemies
 // let allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5, enemy6, enemy7, enemy8, enemy9, enemy10];
 let allEnemies = [enemy1, enemy2, enemy3, enemy4];
