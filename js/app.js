@@ -58,6 +58,10 @@ Player.prototype.update = function() {
     player.x=200;
     player.y=400;
   }
+  else if(player.x === selector.x && (player.y - selector.y) === 23) {
+    player.x = 200;
+    player.y = -15;
+  }
   };
 
 Player.prototype.render = function() {
@@ -83,7 +87,7 @@ var Select = function() {
 Select.prototype.render = function() {
       ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     };
-
+//TODO spróbować z setInterval
 // Now instantiate your objects.
 var enemy1 = new Enemy(68);
 var enemy2 = new Enemy(151);
