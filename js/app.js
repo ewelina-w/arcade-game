@@ -9,6 +9,7 @@ var Enemy = function(y) {
     this.x = 0;
     this.y = y;
     this.speed = Math.random()*300;
+    //TODO zmienić Math.random
     // this.speed = (Math.random()*(setInterval(Enemy, 300)))*100;
 };
 
@@ -40,8 +41,11 @@ var Player = function() {
   this.y = 400;
 };
 
-//Check collision with enemies
+
 Player.prototype.update = function() {
+  //Check if the player gets to water
+  player.checkFinish();
+  //Check collision with enemies
   if (player.y === enemy4.y && enemy4.x >= (player.x - 85.5) && enemy4.x <= (player.x+85.5)) {
     player.x=200;
     player.y=400;
@@ -58,6 +62,7 @@ Player.prototype.update = function() {
     player.x=200;
     player.y=400;
   }
+  //Check if the player gets to the selector
   else if(player.x === selector.x && (player.y - selector.y) === 23) {
     player.x = 200;
     player.y = -15;
@@ -114,8 +119,23 @@ player.handleInput = function(direction) {
   }
   //Count moves
   moves+=1;
-  console.log('moves');
 };
+
+const newDiv = document.createElement('div');
+const body = document.querySelector('body');
+body.appendChild(newDiv);
+const newParagraph = document.createElement('p');
+const div = document.querySelector('div');
+div.appendChild(newParagraph);
+
+
+//Finish the game when the player gets to water
+player.checkFinish = function() {
+  if(player.y===-15) {
+    document.querySelector('div').style.display='block';
+    newParagraph.innerText=`Congratulations! You won! Moves: ${moves}`;
+  }
+}
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.

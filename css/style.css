@@ -1,3 +1,24 @@
 body {
-    text-align: center;
+    text-align: center
+}
+
+div {
+  display: none;
+  max-width: 505px;
+  max-height: 606px;
+  position: relative
+}
+
+p {
+  max-width: 505px;
+  max-height: 606px;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  font-size: 40px;
+  font-family: 'Noto Sans', 'Yantramanav', 'Arimo', sans-serif;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: black;
+  position: absolute;
+  top: 50%;
+  transform: translate(120px, 180px)
 }
