@@ -121,25 +121,30 @@ player.handleInput = function(direction) {
   moves+=1;
 };
 
+//Add elements of pop-up which finish the game
 const newDiv = document.createElement('div');
 const body = document.querySelector('body');
 body.appendChild(newDiv);
-const newParagraph = document.createElement('p');
 const div = document.querySelector('div');
+const newParagraph = document.createElement('p');
 div.appendChild(newParagraph);
-
+const newButton = document.createElement('button');
+div.appendChild(newButton);
 
 //Finish the game when the player gets to water
 player.checkFinish = function() {
   if(player.y===-15) {
     document.querySelector('div').style.display='block';
-    newParagraph.innerText=`Congratulations! You won! Moves: ${moves}`;
+    newParagraph.innerText=`Congratulations! You won with ${moves} moves`;
+    newButton.innerText=`Play again`;
+    document.removeEventListener('keyup', keys);
   }
 }
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
-document.addEventListener('keyup', function(e) {
+
+function keys(e) {
     var allowedKeys = {
         37: 'left',
         38: 'up',
@@ -148,4 +153,15 @@ document.addEventListener('keyup', function(e) {
     };
 
     player.handleInput(allowedKeys[e.keyCode]);
-});
+}
+
+document.addEventListener('keyup', keys);
+
+//Add event listener to play again button
+newButton.addEventListener('click', function() {
+  player.x=200;
+  player.y=400;
+  moves = 0;
+  document.addEventListener('keyup', keys);
+  document.querySelector('div').style.display='none';
+})
