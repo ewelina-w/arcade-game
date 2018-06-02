@@ -91,6 +91,7 @@ var Select = function() {
 
 Select.prototype.render = function() {
       ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+      selector.selectorDisappear();
     };
 //TODO spróbować z setInterval
 // Now instantiate your objects.
@@ -100,6 +101,12 @@ var enemy3 = new Enemy(234);
 var enemy4 = new Enemy(317);
 
 var selector = new Select();
+selector.selectorDisappear = function () {
+  if (moves===4) {
+    selector.x=-999;
+    selector.y=-999;
+  }
+}
 // Place all enemy objects in an array called allEnemies
 // let allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5, enemy6, enemy7, enemy8, enemy9, enemy10];
 let allEnemies = [enemy1, enemy2, enemy3, enemy4];
