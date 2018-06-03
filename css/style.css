@@ -4,23 +4,26 @@ body {
 
 div {
   display: none;
-  max-width: 505px;
-  max-height: 606px;
-  position: relative
+  position: relative;
 }
 
 p {
-  max-width: 505px;
-  max-height: 606px;
-  margin-top: 2em;
-  margin-bottom: 2em;
+  width: 505px;
+  height: auto;
   font-size: 40px;
   font-family: 'Noto Sans', 'Yantramanav', 'Arimo', sans-serif;
   background-color: rgba(255, 255, 255, 0.3);
   color: black;
   position: absolute;
   top: 50%;
-  transform: translate(115px, 180px)
+  transform: translate(-251px, 150px);
+  z-index: 2;
+  display: inline;
+}
+
+canvas {
+  position: relative;
+  z-index: 1;
 }
 
 button {
@@ -28,12 +31,12 @@ button {
   font-weight: lighter;
   font-family: 'Noto Sans', 'Yantramanav', 'Arimo', sans-serif;
   height: 40px;
-  background-color: rgb(85, 109, 214);
+  background-color: white;
   position: absolute;
   top: 50%;
-  transform: translate(80px, 380px);
+  transform: translate(-40px, 380px);
   border-radius: 10px;
   margin-top: 1.2em;
   box-shadow: 2px 2px white;
-
+  z-index: 2;
 }
