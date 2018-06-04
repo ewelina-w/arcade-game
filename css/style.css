@@ -2,9 +2,10 @@ body {
     text-align: center
 }
 
+/*Style for ending pop-up  */
 div {
   display: none;
-  position: relative;
+  position: relative
 }
 
 p {
@@ -18,14 +19,15 @@ p {
   top: 50%;
   transform: translate(-251px, 150px);
   z-index: 2;
-  display: inline;
+  display: inline
 }
 
 canvas {
   position: relative;
-  z-index: 1;
+  z-index: 1
 }
 
+/*Style for Play again button  */
 button {
   font-size: 13px;
   font-weight: lighter;
@@ -38,5 +40,5 @@ button {
   border-radius: 10px;
   margin-top: 1.2em;
   box-shadow: 2px 2px white;
-  z-index: 2;
+  z-index: 2
 }
