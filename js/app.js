@@ -84,6 +84,8 @@ var enemy1 = new Enemy(68);
 var enemy2 = new Enemy(151);
 var enemy3 = new Enemy(234);
 var enemy4 = new Enemy(317);
+var enemy5 = new Enemy(151);
+var enemy6 = new Enemy(317);
 
 //Place the teleporter object in a variable
 var selector = new Select();
@@ -95,8 +97,9 @@ selector.selectorDisappear = function () {
     selector.y=-999;
   }
 }
+
 //Place all enemy objects in an array called allEnemies
-let allEnemies = [enemy1, enemy2, enemy3, enemy4];
+let allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5, enemy6];
 
 //Place the player object in a variable
 var player = new Player();
