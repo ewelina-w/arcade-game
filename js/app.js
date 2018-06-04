@@ -75,6 +75,7 @@ var Select = function() {
 //Draw the teleporter on the canvas
 Select.prototype.render = function() {
       ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+  //and make it disappear
       selector.selectorDisappear();
     }
 
@@ -89,7 +90,7 @@ var selector = new Select();
 
 //Make the teleporter disappear
 selector.selectorDisappear = function () {
-  if (moves===4) {
+  if (moves===4 || player.y===-15) {
     selector.x=-999;
     selector.y=-999;
   }
