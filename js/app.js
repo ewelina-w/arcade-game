@@ -11,7 +11,7 @@ var Enemy = function(y) {
 Enemy.prototype.update = function(dt) {
     this.x += this.speed*dt;
     if (this.x>=500) {
-      this.x=-100;
+      this.x =- 100;
     }
 }
 
@@ -88,15 +88,15 @@ Select.prototype.render = function() {
     }
 
 //Place the enemy object in a variables
-var enemy1 = new Enemy(68);
-var enemy2 = new Enemy(151);
-var enemy3 = new Enemy(234);
-var enemy4 = new Enemy(317);
-var enemy5 = new Enemy(151);
-var enemy6 = new Enemy(317);
+const enemy1 = new Enemy(68);
+const enemy2 = new Enemy(151);
+const enemy3 = new Enemy(234);
+const enemy4 = new Enemy(317);
+const enemy5 = new Enemy(151);
+const enemy6 = new Enemy(317);
 
 //Place the teleporter object in a variable
-var selector = new Select();
+const selector = new Select();
 
 //Make the teleporter disappear
 selector.selectorDisappear = function () {
@@ -107,10 +107,10 @@ selector.selectorDisappear = function () {
 }
 
 //Place all enemy objects in an array called allEnemies
-let allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5, enemy6];
+const allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5, enemy6];
 
 //Place the player object in a variable
-var player = new Player();
+const player = new Player();
 
 // Manage the player moves
 let moves = 0;
