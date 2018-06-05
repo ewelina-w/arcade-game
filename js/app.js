@@ -130,10 +130,11 @@ player.handleInput = function(direction) {
 }
 
 //Add elements of pop-up which finish the game
-const newDiv = document.createElement('div');
+const newElement = document.createElement('div');
 const body = document.querySelector('body');
-body.appendChild(newDiv);
-const div = document.querySelector('div');
+newElement.setAttribute('id', 'newContainer');
+body.appendChild(newElement);
+const div = document.getElementById('newContainer')
 const newParagraph = document.createElement('p');
 div.appendChild(newParagraph);
 const newButton = document.createElement('button');
