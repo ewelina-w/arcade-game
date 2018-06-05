@@ -32,7 +32,15 @@ Player.prototype.update = function() {
   //Check if the player gets to the water
   player.checkFinish();
   //Check collision with enemies
-  if (player.y === enemy4.y && enemy4.x >= (player.x - 85.5) && enemy4.x <= (player.x + 85.5)) {
+  if (player.y === enemy6.y && enemy6.x >= (player.x - 85.5) && enemy6.x <= (player.x + 85.5)) {
+    player.x = 200;
+    player.y = 400;
+  }
+  else if (player.y === enemy5.y && enemy5.x >= (player.x - 85.5) && enemy5.x <= (player.x + 85.5)) {
+    player.x = 200;
+    player.y = 400;
+  }
+  else if (player.y === enemy4.y && enemy4.x >= (player.x - 85.5) && enemy4.x <= (player.x + 85.5)) {
     player.x = 200;
     player.y = 400;
   }
