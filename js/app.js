@@ -10,7 +10,7 @@ var Enemy = function(y) {
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
     this.x += this.speed*dt;
-    if (this.x>=500) {
+    if (this.x >= 500) {
       this.x =- 100;
     }
 }
@@ -100,9 +100,9 @@ const selector = new Select();
 
 //Make the teleporter disappear
 selector.selectorDisappear = function () {
-  if (moves===4 || player.y===-15) {
-    selector.x=-999;
-    selector.y=-999;
+  if (moves === 4 || player.y === -15) {
+    selector.x = -999;
+    selector.y = -999;
   }
 }
 
@@ -115,18 +115,18 @@ const player = new Player();
 // Manage the player moves
 let moves = 0;
 player.handleInput = function(direction) {
-  if (direction==='up' && this.y>=0) {
-    this.y-=83;
-  } else if (direction==='down' && this.y<=350) {
-    this.y+=83;
-  } else if  (direction==='right' && this.x<=350) {
-    this.x+=101;
-  } else if(direction==='left' && this.x>=0) {
-    this.x-=101;
+  if (direction === 'up' && this.y >= 0) {
+    this.y -= 83;
+  } else if (direction === 'down' && this.y <= 350) {
+    this.y += 83;
+  } else if (direction === 'right' && this.x <= 350) {
+    this.x += 101;
+  } else if (direction === 'left' && this.x >=0) {
+    this.x -= 101;
   }
 
   //Count moves
-  moves+=1;
+  moves += 1;
 }
 
 //Add elements of pop-up which finish the game
@@ -142,10 +142,10 @@ div.appendChild(newButton);
 
 //Finish the game when the player gets to water
 player.checkFinish = function() {
-  if(player.y===-15) {
-    document.querySelector('div').style.display='block';
-    newParagraph.innerText=`Congratulations! You won with ${moves} moves`;
-    newButton.innerText=`Play again`;
+  if(player.y === -15) {
+    document.querySelector('div').style.display = 'block';
+    newParagraph.innerText = `Congratulations! You won with ${moves} moves`;
+    newButton.innerText = `Play again`;
     document.removeEventListener('keyup', keys);
   }
 }
@@ -165,10 +165,10 @@ document.addEventListener('keyup', keys);
 
 //Add event listener to play again button
 newButton.addEventListener('click', function() {
-  player.x=200;
-  player.y=400;
+  player.x = 200;
+  player.y = 400;
   moves = 0;
   document.addEventListener('keyup', keys);
-  document.querySelector('div').style.display='none';
+  document.querySelector('div').style.display = 'none';
   }
 )
