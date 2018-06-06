@@ -32,35 +32,35 @@ Player.prototype.update = function() {
   //Check if the player gets to the water
   player.checkFinish();
   //Check collision with enemies
-  if (player.y === enemy6.y && enemy6.x >= (player.x - 85.5) && enemy6.x <= (player.x + 85.5)) {
-    player.x = 200;
-    player.y = 400;
+  if (this.y === enemy6.y && enemy6.x >= (this.x - 85.5) && enemy6.x <= (this.x + 85.5)) {
+    this.x = 200;
+    this.y = 400;
   }
-  else if (player.y === enemy5.y && enemy5.x >= (player.x - 85.5) && enemy5.x <= (player.x + 85.5)) {
-    player.x = 200;
-    player.y = 400;
+  else if (this.y === enemy5.y && enemy5.x >= (this.x - 85.5) && enemy5.x <= (this.x + 85.5)) {
+    this.x = 200;
+    this.y = 400;
   }
-  else if (player.y === enemy4.y && enemy4.x >= (player.x - 85.5) && enemy4.x <= (player.x + 85.5)) {
-    player.x = 200;
-    player.y = 400;
+  else if (this.y === enemy4.y && enemy4.x >= (this.x - 85.5) && enemy4.x <= (this.x + 85.5)) {
+    this.x = 200;
+    this.y = 400;
   }
-  else if (player.y === enemy3.y && enemy3.x >= (player.x - 85.5) && enemy3.x <= (player.x + 85.5)) {
-    player.x = 200;
-    player.y = 400;
+  else if (this.y === enemy3.y && enemy3.x >= (this.x - 85.5) && enemy3.x <= (this.x + 85.5)) {
+    this.x = 200;
+    this.y = 400;
   }
-  else if (player.y === enemy2.y && enemy2.x >= (player.x - 85.5) && enemy2.x <= (player.x + 85.5)) {
-    player.x = 200;
-    player.y = 400;
+  else if (this.y === enemy2.y && enemy2.x >= (this.x - 85.5) && enemy2.x <= (this.x + 85.5)) {
+    this.x = 200;
+    this.y = 400;
   }
-  else if (player.y === enemy1.y && enemy1.x >= (player.x - 85.5) && enemy1.x <= (player.x + 85.5)) {
-    player.x = 200;
-    player.y = 400;
+  else if (this.y === enemy1.y && enemy1.x >= (this.x - 85.5) && enemy1.x <= (this.x + 85.5)) {
+    this.x = 200;
+    this.y = 400;
   }
 
   //Check if the player gets to the teleporter
-  else if (player.x === selector.x && (player.y - selector.y) === 23) {
-    player.x = 200;
-    player.y = -15;
+  else if (this.x === selector.x && (this.y - selector.y) === 23) {
+    this.x = 200;
+    this.y = -15;
   }
 }
 
@@ -101,8 +101,8 @@ const selector = new Select();
 //Make the teleporter disappear
 selector.selectorDisappear = function () {
   if (moves === 4 || player.y === -15) {
-    selector.x = -999;
-    selector.y = -999;
+    this.x = -999;
+    this.y = -999;
   }
 }
 
@@ -142,7 +142,7 @@ div.appendChild(newButton);
 
 //Finish the game when the player gets to water
 player.checkFinish = function() {
-  if(player.y === -15) {
+  if(this.y === -15) {
     document.querySelector('div').style.display = 'block';
     newParagraph.innerText = `Congratulations! You won with ${moves} moves`;
     newButton.innerText = `Play again`;
